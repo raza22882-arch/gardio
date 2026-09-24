@@ -126,10 +126,15 @@ body {
 }
 
 .dropdown button span {
-  font-size: 23px;
-  margin-left: 4px;
+  width: 8px;
+  height: 8px;
+  margin-left: 10px;
   display: inline-block;
-  transform: translateY(-1px)
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transform-origin: center;
+  transition: transform .18s ease;
 }
 
 .menu {
@@ -651,14 +656,12 @@ footer {
     display: none
   }
 
-  .mobile-toggle {
-    display: block;
-    margin-left: auto;
-    background: none;
-    border: 0;
-    font-size: 25px;
-    color: #1d2238
-  }
+ .mobile-toggle {
+  margin-left: auto;
+  background: none;
+  border: 0;
+  color: #1d2238;
+}
 
   .hero,
   .press,
@@ -820,7 +823,7 @@ footer {
 }
 
 .dropdown.is-open .dropdown-toggle span {
-  transform: rotate(180deg)
+  transform: rotate(225deg) translateY(-2px);
 }
 
 .dropdown:hover .menu,
@@ -848,14 +851,15 @@ footer {
   left: 0;
   right: 0;
   top: 100%;
-  background: rgba(239, 241, 236, .98);
+  background: #eef0ed;
   border-top: 1px solid rgba(25, 31, 51, .15);
   box-shadow: 0 20px 35px rgba(0, 0, 0, .12);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: max-height .28s ease, opacity .2s ease, visibility .2s ease
+  transition: max-height .28s ease, opacity .2s ease, visibility .2s ease;
+  z-index: 100;
 }
 
 .mobile-menu.is-open {
@@ -891,34 +895,36 @@ footer {
 }
 
 .mobile-dropdown-toggle span {
-  transition: transform .18s ease
+  width: 8px;
+  height: 8px;
+  margin-left: 10px;
+  display: inline-block;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transform-origin: center;
+  transition: transform .18s ease;
 }
 
 .mobile-dropdown.is-open .mobile-dropdown-toggle span {
-  transform: rotate(180deg)
+  transform: rotate(225deg) translateY(-2px);
 }
 
 .mobile-submenu {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .22s ease;
-  padding-left: 16px
+  display: none;
+  padding-left: 16px;
 }
 
 .mobile-dropdown.is-open .mobile-submenu {
-  grid-template-rows: 1fr
+  display: block;
 }
 
 .mobile-submenu a {
-  overflow: hidden;
+  display: block;
   color: #17203a;
   text-decoration: none;
-  padding: 0 0 12px;
-  font-size: 17px
-}
-
-.mobile-dropdown.is-open .mobile-submenu a:first-child {
-  padding-top: 2px
+  padding: 8px 0;
+  font-size: 17px;
 }
 
 .mobile-actions {
