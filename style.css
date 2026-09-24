@@ -1088,11 +1088,115 @@ footer {
 
   .main-nav,
   .nav-actions {
-    display: none
+    display: none;
   }
 
   .mobile-menu {
-    display: block
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .mobile-menu span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 0;
+    background: var(--ink);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  /* OPEN MOBILE MENU */
+  .main-nav.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    padding: 16px 20px 24px;
+
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(25, 31, 52, 0.12);
+
+    z-index: 100;
+  }
+
+  /* Mobile navigation links */
+  .main-nav.mobile-open>a {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 17px;
+  }
+
+  /* Mobile dropdown */
+  .main-nav.mobile-open .nav-dropdown {
+    width: 100%;
+  }
+
+  .main-nav.mobile-open .nav-button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 17px;
+  }
+
+  /* Dropdown menus on mobile */
+  .main-nav.mobile-open .dropdown-menu {
+    position: static;
+    display: none;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 0 0 8px 16px;
+
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .main-nav.mobile-open .nav-dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .main-nav.mobile-open .dropdown-menu a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  /* Hamburger → X */
+  .mobile-menu.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Don't allow page to scroll behind open menu */
+  body.menu-open {
+    overflow: hidden;
   }
 
   .hero {
